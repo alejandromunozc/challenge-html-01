@@ -63,6 +63,7 @@ h2 {
 .burger-button {
     font-size: 2em;
     justify-self: end;
+    display: none;
 }
 
 /* Content */
@@ -223,6 +224,10 @@ figure span {
 }
 
 @media screen and (max-width: 768px) {
+    .burger-button{
+        display: block;
+    }
+
     .site-head {
         padding: 0 20px;
     }
