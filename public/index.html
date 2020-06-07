@@ -2,7 +2,9 @@
 <html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Base</title>
+    <script src="https://use.fontawesome.com/6f8a610621.js"></script>
     <link rel="stylesheet" href="../src/styles/components/estilos.css">
   </head>
   <body>
@@ -23,6 +25,7 @@
             <li><a href="#">Entertaiment</a></li>
           </ul>
         </div>
+        <i class="fa fa-bars burger-button" id="burger-menu"></i>
       </nav>
     </header>
     <main class="site-main">
@@ -139,10 +142,49 @@
           </div>
         </div>
         <div class="item social">
-          <p>Follow us:</p>
+          <div class="social">
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+          </div>
         </div>
-        <div class="item suscribete">Suscribete</div>
+        <div class="item suscribete">
+          <form class="form-email" action="">
+            <input type="text" id="email" placeholder="Your E-mail">
+            <button type="button" name="button">Subscribe</button>
+          </form>
+        </div>
       </div>
     </footer>
+    <script type="text/javascript">
+      window.matchMedia('screen and (max-width: 767px)');
+  
+      const ipad = window.matchMedia('screen and (max-width: 767px)')
+  
+      const menu = document.querySelector('.menu');
+      const burgerButton = document.querySelector('#burger-menu');
+  
+      ipad.addListener(validation);
+  
+      function validation(event){
+        if (event.matches) {
+          burgerButton.addEventListener('click', showHide);
+          // menu.addEventListener('click', showHide);
+        } else {
+          burgerButton.removeEventListener('click', showHide);
+        }
+      }
+  
+      validation(ipad);
+  
+      function showHide(){
+        if (menu.classList.contains('is-active')) {
+          menu.classList.remove('is-active');
+        } else {
+          menu.classList.add('is-active');
+        }
+      }
+    </script>
   </body>
 </html>
