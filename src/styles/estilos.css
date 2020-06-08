@@ -233,6 +233,9 @@ figure span {
     }
     .site-head {
         padding: 0 20px;
+        position: sticky;
+        top: 0;
+        z-index: 4;
     }
     .site-head .container {
         grid-template-columns: 1fr 1fr;
