@@ -33,8 +33,8 @@ class Navbar extends React.Component {
                 <a href="/">Entertaiment</a>
               </li>
             </ul>
-            <i className="fa fa-bars burger-button" id="burger-menu"></i>
           </div>
+          <i className="fa fa-bars burger-button" id="burger-menu"></i>
         </nav>
       </header>
     );
