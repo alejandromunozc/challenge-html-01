@@ -1,25 +1,32 @@
 import React from 'react';
 import '../styles/estilos.css';
+import BDArticulos from '../../resources/blogArticles.json';
 
 class Article extends React.Component {
   render() {
     return (
-      <article className="item level-1">
-        <figure>
-          <img
-            src="../resources/imgs/dose-media-344938.png"
-            alt="Imagen articulo"
-          />
-          <span>Technology</span>
-        </figure>
-        <section className="content">
-          <h2>Using banner stands to increase show traffic</h2>
-          <p>
-            There is a lot of exciting stuff going on in the stars above us that
-            make astronomy so much fun.
-          </p>
-        </section>
-      </article>
+      <div className="container">
+      {BDArticulos.map(articulo => {
+        return (
+          <article className={articulo.classLevel} key={articulo.id}>
+            <figure>
+              <img
+                src={articulo.imgUrl}
+                alt="Imagen articulo"
+              />
+              <span>{articulo.category}</span>
+            </figure>
+            <section className="content">
+              <h2>{articulo.title}</h2>
+              <p>
+                {articulo.description}
+              </p>
+            </section>
+          </article>
+        );
+      })}
+      </div>
+      
     );
   }
 }
