@@ -1,10 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/styles/estilos.css">
     <title>React Base</title>
-  </head>
-  <body>
+</head>
+
+<body onload="responsive()">
     <div id="app"></div>
-  </body>
+    <script type="text/javascript">
+        function responsive() {
+            window.matchMedia('screen and (max-width: 767px)');
+
+            const ipad = window.matchMedia('screen and (max-width: 767px)')
+
+            const menu = document.querySelector('.menu');
+            const burgerButton = document.querySelector('#burger-menu');
+
+            ipad.addListener(validation);
+
+            function validation(event) {
+                if (event.matches) {
+                    burgerButton.addEventListener('click', showHide);
+                    // menu.addEventListener('click', showHide);
+                } else {
+                    burgerButton.removeEventListener('click', showHide);
+                }
+            }
+
+            validation(ipad);
+
+            function showHide() {
+                if (menu.classList.contains('is-active')) {
+                    menu.classList.remove('is-active');
+                } else {
+                    menu.classList.add('is-active');
+                }
+            }
+        }
+    </script>
+</body>
+
 </html>
